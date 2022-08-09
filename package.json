@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "migration": "node -e \"require('./database/_utils').runMigration()\"",
+    "seed": "node -e \"require('./database/_utils').runSeed()\""
   },
   "repository": {
     "type": "git",
