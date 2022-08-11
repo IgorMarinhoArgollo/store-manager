@@ -1,0 +1,701 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Store Manager Educational Project",
+    "description": "This is an eductional project to practice the use of Express on a backend application and tests. It was developed with Express and Node using JS. This project was developed during the Backend Module of Trybe Course",
+    "version": "1.0.0",
+    "contact": {
+      "email": "igormarinhoargollo@gmail.com"
+    }
+  },
+  "server": {
+    "url": "http://localhost:3000",
+    "description": "Store Manager API"
+  },
+  "paths": {
+    "/products": {
+      "get": {
+        "summary": "List All Registered Products",
+        "description": "This route is responsible for listing all registered products on the database",
+        "tags": [
+          "products"
+        ],
+        "responses": {
+          "200": {
+            "description": "Found Products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                },
+                "examples": {
+                  "product": {
+                    "value": [
+                      {
+                        "id": 1,
+                        "name": "Thor's Hammer"
+                      },
+                      {
+                        "id": 2,
+                        "name": "Shrink Suit"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a product",
+        "description": "This route is responsible for creating a product on the database",
+        "tags": [
+          "products"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "required": true
+                  }
+                }
+              },
+              "examples": {
+                "product": {
+                  "value": {
+                    "name": "Iron Suit"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created Product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Product"
+                },
+                "example": {
+                  "id": 4,
+                  "name": "Iron Suit"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "\"name\" is required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "\"name\" is required"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "\"name\" length must be at least 5 characters long",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "\"name\" length must be at least 5 characters long"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "summary": "Get Product By Id",
+        "description": "This route is responsible for getting a product from it's id",
+        "tags": [
+          "products"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id to get",
+            "required": "true"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Found product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Product"
+                },
+                "example": {
+                  "id": 1,
+                  "name": "Thor's Hammer"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Product not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an Existing Product",
+        "description": "This route is responsible for updating an existing product on the database",
+        "tags": [
+          "products"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id to update",
+            "required": "true"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "required": true
+                  }
+                }
+              },
+              "examples": {
+                "product": {
+                  "value": {
+                    "name": "Product Y"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Talker Updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Product"
+                },
+                "example": {
+                  "id": 2,
+                  "name": "Product Y"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Product not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "Product not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an Existing Talker",
+        "description": "This route is responsible for deleting an existing product on the database",
+        "tags": [
+          "products"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id to delete",
+            "required": "true"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Talker Deleted"
+          },
+          "404": {
+            "description": "Product not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "Talker not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/search": {
+      "get": {
+        "summary": "Get Product By Name or Part of the Name",
+        "description": "This route is responsible for getting a product by name.",
+        "tags": [
+          "products"
+        ],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Name to get",
+            "required": "true"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Found Products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "name": "Thor's Hammer"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sales": {
+      "get": {
+        "summary": "Get All Sales",
+        "description": "This route is responsible for getting all sales",
+        "tags": [
+          "sales"
+        ],
+        "responses": {
+          "200": {
+            "description": "All Sales",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Sale"
+                  }
+                },
+                "examples": {
+                  "sales": {
+                    "value": [
+                      {
+                        "saleId": 1,
+                        "date": "2021-09-09T04:54:29.000Z",
+                        "productId": 1,
+                        "quantity": 2
+                      },
+                      {
+                        "saleId": 1,
+                        "date": "2021-09-09T04:54:54.000Z",
+                        "productId": 2,
+                        "quantity": 2
+                      },
+                      {
+                        "saleId": 2,
+                        "date": "2022-08-11T01:43:02.000Z",
+                        "productId": 3,
+                        "quantity": 15
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Sale creation route",
+        "description": "This route is responsible for creating a new sale on the database",
+        "tags": [
+          "sales"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                  "$ref": "#/components/schemas/SaleToBeCreated"
+              },
+              "example": [
+                {
+                  "productId": 1,
+                  "quantity": 1
+                },
+                {
+                  "productId": 2,
+                  "quantity": 5
+                }
+              ]
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created Talker",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CreatedSale"
+                },
+                "example": {
+                  "id": 3,
+                  "itemsSold": [
+                    {
+                      "productId": 1,
+                      "quantity": 1
+                    },
+                    {
+                      "productId": 2,
+                      "quantity": 5
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid Token - 'Token not found' or 'Invalid Token'",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "Token not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sales/{id}": {
+      "get": {
+        "summary": "Get Sale By Id",
+        "description": "This route is responsible for getting a sale by Id",
+        "tags": [
+          "sales"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id to get",
+            "required": "true"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Found Talker",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SaleId"
+                  }
+                },
+                "example": [
+                  {
+                    "date": "2022-08-11T01:43:02.000Z",
+                    "productId": 1,
+                    "quantity": 5
+                  },
+                  {
+                    "date": "2022-08-11T01:43:02.000Z",
+                    "productId": 2,
+                    "quantity": 10
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "Sale not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "Sale not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an Existing Sale",
+        "description": "This route is responsible for updating an existing sale on the database",
+        "tags": [
+          "sales"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id to update",
+            "required": "true"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaleToBeCreated"
+              },
+              "example": [
+                {
+                  "productId": 1,
+                  "quantity": 10
+                },
+                {
+                  "productId": 2,
+                  "quantity": 50
+                }
+              ]
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Talker Updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CreatedSale"
+                },
+                "example": {
+                    "saleId": 1,
+                    "itemsSold": [
+                      {
+                        "productId": 1,
+                        "quantity": 10
+                      },
+                      {
+                        "productId": 2,
+                        "quantity": 50
+                      }
+                    ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Sale not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "Sale not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an Existing Sale",
+        "description": "This route is responsible for deleting an existing sale on the database",
+        "tags": [
+          "sales"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id to delete",
+            "required": "true"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Talker Deleted"
+          },
+          "404": {
+            "description": "Sale not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "Talker not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "Sale": {
+        "type": "object",
+        "properties": {
+          "saleId": {
+            "type": "number"
+          },
+          "date": {
+            "type": "string"
+          },
+          "productId": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number"
+          }
+        }
+      },
+      "SaleId": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "productId": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number"
+          }
+        }
+      },
+      "SaleToBeCreated": {
+        "type": "array",
+        "items": {
+          "properties": {
+            "productId": {
+              "type": "number",
+              "required": "true"
+            },
+            "quantity": {
+              "type": "number",
+              "required": "true"
+            }
+          }
+        }
+      },
+      "CreatedSale": {
+        "type": "object",
+        "properties": {
+          "id":{
+            "type":"number"
+          },
+          "itemsSold": {
+            "type":"array",
+            "items":{
+              "properties":{
+                "productId": {
+                  "type":"number"
+                },
+                "quantity": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

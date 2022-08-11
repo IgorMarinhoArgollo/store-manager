@@ -37,7 +37,7 @@ const updateSale = async (id, arr) => {
   }));
   return {
     saleId: Number(id),
-    itemsUpdated: result,
+    itemsSold: result,
   };
 };
 

@@ -9,9 +9,9 @@ TRUNCATE TABLE `sales_products`;
 SET FOREIGN_KEY_CHECKS = 1;
 
 INSERT INTO StoreManager.products (name) VALUES
-    ("Martelo de Thor"),
-    ("Traje de encolhimento"),
-    ("Escudo do Capitão América");
+    ("Thor's Hammer"),
+    ("Shrink Suit"),
+    ("Capitain America's Shield");
 
 INSERT INTO StoreManager.sales (date) VALUES
     (NOW()),
