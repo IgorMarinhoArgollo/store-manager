@@ -75,6 +75,7 @@ const updateSale = async (quantity, saleId, productId) => {
     SET quantity = ? 
     WHERE sale_id = ?
     AND product_id = ?`, [quantity, saleId, productId]);
+  return { status: 'ok' };
 };
 
 module.exports = {
@@ -83,4 +84,6 @@ module.exports = {
   createSale,
   deleteSale,
   updateSale,
+  createSaleOnSalesProduct,
+  createSaleOnSale,
 };
