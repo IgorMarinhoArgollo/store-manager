@@ -19,8 +19,8 @@ const runSql = (file) => async () => {
   await db.end();
 };
 
-const runMigration = runSql(path.resolve(cwd(), './migration.sql'));
-const runSeed = runSql(path.resolve(cwd(), './seed.sql'));
+const runMigration = runSql(path.resolve(cwd(), './database/migrations/migration.sql'));
+const runSeed = runSql(path.resolve(cwd(), './database/migrations/seed.sql'));
 
 module.exports = {
   connect,

@@ -5,50 +5,43 @@ services:
     container_name: app
     build: .
     restart: 'always'
-    env_file:
-      - .env 
     ports:
       - "$PORT:3000"
     stdin_open: true
     tty: true
-    # environment: #quais eu preciso passar aqui e a melhor prática é usar o .env, já que o .env não vai junto? .env deve ir no dockerignore?
-     # - MYSQL_HOST=localhost
-     # - MYSQL_USER=root
-     # - MYSQL_PASSWORD=12345678
-     # - MYSQL_DATABASE=StoreManager
+    #trocar MYSQL_HOST(localHost - db) e MYSQL_USER (root - admin) no dotEnv
+    environment:
+     - MYSQL_HOST=$MYSQL_HOST
+     - MYSQL_USER=$MYSQL_USER
+     - MYSQL_PASSWORD=$MYSQL_PASSWORD
+     - MYSQL_DATABASE=$MYSQL_DATABASE
     depends_on:
       - db
     volumes:
       - .:/usr/app
     networks:
-      - backendNetwork
+      - conectionDB
 
   db:
     container_name: db
     image: mysql
     restart: 'always'
-    env_file:
-      - .env
     command: --default-authentication-plugin=mysql_native_password
     ports:
-      - "3308:3306" #como posso verificar com as portas diferentes?
-    environment: # preciso do comando extra do password?
+      - "3308:3306" 
+    environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_PASSWORD
       - MYSQL_DATABASE=$MYSQL_DATABASE
       - MYSQL_USER=$MYSQL_USER
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
     networks:
-      - backendNetwork
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      timeout: 10s
-      retries: 5
+      - conectionDB
     cap_add:
      - SYS_NICE
     volumes:
       - ./database:/usr/db
-      - ./database/*.sql:/docker-entrypoint-initdb.d
+      - ./database/migrations/:/docker-entrypoint-initdb.d
     
 networks:
-  backendNetwork:
-    name: backendNetwork   
+  conectionDB:
+    name: conectionDB   
