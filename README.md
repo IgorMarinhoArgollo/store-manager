@@ -11,18 +11,18 @@
    
 <details>
   <summary><h2>:brazil: Português</h2></summary>
-  O Store Manager Project foi desenvolvido com fins educacionais no módulo de Backend do Curso de Desenvolvimento Web Full Stack na Trybe. <br> Além da parcela do backend (desenvolvida em Node.js e ExpressJS) do gerenciador de loja, o projeto conta com um bando de dados relacionais desenvolvido com o MySQL.<br><br>
+  O Store Manager Project foi desenvolvido com fins educacionais no módulo de Backend do Curso de Desenvolvimento Web Full Stack na Trybe. <br> Além da parcela do backend (desenvolvida em Node.js e ExpressJS com JavaScript) do gerenciador de loja, o projeto conta com um bando de dados relacionais desenvolvido com o MySQL e os testes utilizando: Mocha, Chai e Sinon.<br><br>
   
   ## Live Link
   <a href="https://talkermanager.herokuapp.com/api-docs/">Live/Documentação</a><br><br>
   
   ## Objetivos
-  * Elaborar o Backend de um gerenciador de palestrantes;
+  * Elaborar o Backend de um gerenciador de loja;
   * Implementar uma rota de Vendas, uma de produtos e outra com a documentação;
-  * Implementar as rotas com consultas do banco de dados MySQL;
+  * Implementar as rotas com consultas ao banco de dados elaborado com MySQL;
   * Adotar boas práticas do ponto de vista de segurança usando: Helmet, Rate-Limit e DotEnv;
   * Utilizar o Swagger para criar a documentação;
-  * Elaborar testes cobrindo, a princípio 100% da aplicação (outros testes ainda serão desenvolvidos para melhorar ainda mais a aplicação web);
+  * Elaborar testes cobrindo, a princípio, 100% da aplicação (outros testes ainda serão desenvolvidos para melhorar ainda mais a aplicação web);
   * Configuração de arquivos Docker para rodar o software.<br><br>
   
   ## Tecnologias usadas
@@ -52,7 +52,16 @@
   
     git clone git@github.com:IgorMarinhoArgollo/store-manager.git
     
-    
+  ### Crie o arquivo .env na pasta store-manager
+  Chaves que devem ser inseridas:
+  ```
+    MYSQL_HOST=localhost
+    MYSQL_USER=root
+    MYSQL_PASSWORD=12345678
+    MYSQL_DATABASE=StoreManager
+    PORT=3000
+  ``` 
+
   ### Rodar Localmente
   #### Requisitos:
    * node.js
@@ -121,13 +130,13 @@
   
   ##  
   ## :us: English
-  The Store Manager Project was developed for educational purposes in the Backend module of the Full Stack Web Development Course at Trybe. <br> In addition to the backend portion (developed in Node.js and ExpressJS) of the store manager, the project has a relational database developed with MySQL.<br><br>
+  The Store Manager Project was developed for educational purposes in the Backend module of the Full Stack Web Development Course at Trybe. <br> In addition to the backend portion (developed in Node.js and ExpressJS with JavaScript) of the store manager, the project has a relational database developed with MySQL and tests developed with: Mocha, Chai and Sinon.<br><br>
 
 ## Live Link
 <a href="https://talkermanager.herokuapp.com/api-docs/">Live/Documents</a><br><br>
   
 ## My Goals
-* Develop the Backend of a speaker manager;
+* Develop the Backend of a store manager;
 * Implement routes: sales, products and documentation;
 * Implement the routes with queries to the MySQL database;
 * Adopt best practices from a security point of view using: Helmet, Rate-Limit and DotEnv;
@@ -162,7 +171,15 @@
   
     git clone git@github.com:IgorMarinhoArgollo/store-manager.git
     
-    
+  ### Create the .env file on store-manager file
+  Keys that must be included:
+  ```
+    MYSQL_HOST=localhost
+    MYSQL_USER=root
+    MYSQL_PASSWORD=12345678
+    MYSQL_DATABASE=StoreManager
+    PORT=3000
+  ``` 
   ### Running Locally
   #### Requirements:
    * node.js
