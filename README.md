@@ -108,7 +108,10 @@
   * PUT /sales/:id
   * DELETE /sales/:id
   
-    
+
+  ## Testes Desenvolvidos
+  ![coverage](./images/coverage.png)
+
   ## Como contribuir no projeto
   1. Faça um **fork** do projeto;
   2. Crie uma nova branch com as suas alterações: `git checkout -b my-feature`;
@@ -225,7 +228,10 @@
   * PUT /sales/:id
   * DELETE /sales/:id
   
-  
+
+## Developed Tests
+  ![coverage](./images/coverage.png)
+
 ## How to contribute on the project
   1. Make a **fork** of the project;
   2. Create a new branch with your changes: `git checkout -b my-feature`;
