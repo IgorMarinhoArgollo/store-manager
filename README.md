@@ -110,6 +110,8 @@
   
 
   ## Testes Desenvolvidos
+  Use npm test para rodar todos os testes e verificar cobertura:<br>
+
   ![coverage](./images/coverage.png)
 
   ## Como contribuir no projeto
@@ -230,6 +232,7 @@
   
 
 ## Developed Tests
+  Use npm test to run all tests and verify coverage:<br>
   ![coverage](./images/coverage.png)
 
 ## How to contribute on the project
