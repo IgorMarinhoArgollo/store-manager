@@ -55,12 +55,17 @@
   ### Crie o arquivo .env na pasta store-manager
   Chaves que devem ser inseridas:
   ```
-    MYSQL_HOST=localhost
-    MYSQL_USER=root
+    MYSQL_HOST=localhost (para rodar localmente)
+    // or
+    // MYSQL_HOST=db (para rodar no container)
+    MYSQL_USER=root (para rodar localmente)
+    // or
+    // MYSQL_USER=admin (para rodar no container)
     MYSQL_PASSWORD=12345678
     MYSQL_DATABASE=StoreManager
     PORT=3000
   ``` 
+   * Lembrar de configurar conexão na ferramenta que faz as requisições da API
 
   ### Rodar Localmente
   #### Requisitos:
@@ -179,12 +184,18 @@
   ### Create the .env file on store-manager file
   Keys that must be included:
   ```
-    MYSQL_HOST=localhost
-    MYSQL_USER=root
+    MYSQL_HOST=localhost (to run locally)
+    // or
+    // MYSQL_HOST=db (to run on container)
+    MYSQL_USER=root (to run locally)
+    // or
+    // MYSQL_USER=admin (to run on container)
     MYSQL_PASSWORD=12345678
     MYSQL_DATABASE=StoreManager
     PORT=3000
   ``` 
+  * Remember to configure the connection on the API request tool.
+
   ### Running Locally
   #### Requirements:
    * node.js
