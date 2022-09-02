@@ -92,7 +92,8 @@
    * Docker
    * Docker-compose
   
-  #### Iniciando o projeto localmente
+  #### Iniciando o projeto no container
+  ajustar .env<br>
   no terminal:
   
     docker-compose up
@@ -223,6 +224,7 @@
    * Docker-compose
   
   #### Starting the project on Docker
+  adjust .env<br>
   On terminal:
   
     docker-compose up
