@@ -14,8 +14,6 @@
   O Store Manager Project foi desenvolvido com fins educacionais no módulo de Backend do Curso de Desenvolvimento Web Full Stack na Trybe. <br> Além da parcela do backend (desenvolvida em Node.js e ExpressJS com JavaScript) do gerenciador de loja, o projeto conta com um bando de dados relacionais desenvolvido com o MySQL e os testes utilizando: Mocha, Chai e Sinon.<br><br>
   
   ## Live Link
-  <a href="https://store-app-manager.herokuapp.com/api-docs/">Live/Documentação</a><br><br>
-
   * Localmente a aplicação está funcionando como deveria, entretanto, tendo em vista a não gratuidade do serviço de banco de dados do Heroku, a implementação do banco não foi realizada. Assim sendo, o link leva o usuário para a documentação, com todos os exemplos de inputs, output e possíveis retornos, mas não é possível se realizar o teste efetivo de consumo da API.
   
   ## Objetivos
@@ -157,9 +155,7 @@
   ## :us: English
   The Store Manager Project was developed for educational purposes in the Backend module of the Full Stack Web Development Course at Trybe. <br> In addition to the backend portion (developed in Node.js and ExpressJS with JavaScript) of the store manager, the project has a relational database developed with MySQL and tests developed with: Mocha, Chai and Sinon.<br><br>
 
-## Live Link
-<a href="https://store-app-manager.herokuapp.com/api-docs/">Live/Documents</a><br><br>
-  
+## Live Link  
   * Locally the application is working as it should, however, in view of the non-gratuity of the Heroku database service, the database implementation was not carried out. Therefore, the Live link takes the user to the documentation, with all the examples of inputs, outputs and possible returns, but it is not possible to carry out an effective test of the API consumption.
 
 ## My Goals
