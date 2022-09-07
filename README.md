@@ -132,6 +132,27 @@
 
   ![coverage](./images/coverage.png)
 
+  ## Imagens das rotas
+   ![1](./images/1.png)
+   ![2](./images/2.png)
+   ![3](./images/3.png)
+   ![4](./images/4.png)
+   ![5](./images/5.png)
+   ![6](./images/6.png)
+   ![7](./images/7.png)
+   ![8](./images/8.png)
+   ![9](./images/9.png)
+   ![10](./images/10.png)
+   ![11](./images/11.png)
+   ![12](./images/12.png)
+   ![13](./images/13.png)
+   ![14](./images/14.png)
+   ![15](./images/15.png)
+   ![16](./images/16.png)
+   ![17](./images/17.png)
+   ![18](./images/18.png)
+   
+
   ## Como contribuir no projeto
   1. Faça um **fork** do projeto;
   2. Crie uma nova branch com as suas alterações: `git checkout -b my-feature`;
@@ -273,6 +294,26 @@
 ## Developed Tests
   Use npm test to run all tests and verify coverage:<br>
   ![coverage](./images/coverage.png)
+
+## Routes Images
+ ![1](./images/1.png)
+ ![2](./images/2.png)
+ ![3](./images/3.png)
+ ![4](./images/4.png)
+ ![5](./images/5.png)
+ ![6](./images/6.png)
+ ![7](./images/7.png)
+ ![8](./images/8.png)
+ ![9](./images/9.png)
+ ![10](./images/10.png)
+ ![11](./images/11.png)
+ ![12](./images/12.png)
+ ![13](./images/13.png)
+ ![14](./images/14.png)
+ ![15](./images/15.png)
+ ![16](./images/16.png)
+ ![17](./images/17.png)
+ ![18](./images/18.png)
 
 ## How to contribute on the project
   1. Make a **fork** of the project;
