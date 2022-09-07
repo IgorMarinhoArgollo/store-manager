@@ -98,7 +98,19 @@
   
     docker-compose up
 
+  ## Testar rotas protegidas na documentação
+   1. Utilizar a rota login para obter o token
+   2. Copiar apenas a parte do JWT token e aplicar no botão Authorization na parte superior da documentação<br>
+   
+   Exemplo do retorno do login:
+   
+    {
+    "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTY2MTgwODE4MSwiZXhwIjoxNjYyNDEyOTgxfQ.usrh36s9E0P45OovNFLGbmuMz8x4C4mNQFoJs2dLLl8"
+    }
 
+   Exemplo de inserção no Authorization:
+   ```eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTY2MTgwODE4MSwiZXhwIjoxNjYyNDEyOTgxfQ.usrh36s9E0P45OovNFLGbmuMz8x4C4mNQFoJs2dLLl8```
+   
   ## Rotas
   Vide detalhes na documentação disponível na rota: 
   
@@ -228,6 +240,20 @@
   On terminal:
   
     docker-compose up
+
+  ## Testing protected routes on documentation
+   1. Use login route to get a token
+   2. Copy only the JWT token part and place it on Authorization button in the upper part of the page<br>
+   
+   Example of login return:
+   ```
+   {
+    "token": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTY2MTgwODE4MSwiZXhwIjoxNjYyNDEyOTgxfQ.usrh36s9E0P45OovNFLGbmuMz8x4C4mNQFoJs2dLLl8"
+    }
+   ```
+   
+   Example of what should be placed on Authorization:
+   ```eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTY2MTgwODE4MSwiZXhwIjoxNjYyNDEyOTgxfQ.usrh36s9E0P45OovNFLGbmuMz8x4C4mNQFoJs2dLLl8```
 
 
 ## Routes
