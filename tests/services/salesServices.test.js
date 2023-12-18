@@ -87,7 +87,6 @@ describe('Verify createSale success', () => {
 describe('Verify deleteSale success', () => {
   before(async () => {
     const result = { status: 'ok' };
-
     sinon.stub(salesModel, 'deleteSale').resolves(result);
   });
 
@@ -103,12 +102,13 @@ describe('Verify deleteSale success', () => {
 describe('Verify deleteSale fail', () => {
   before(async () => {
     const result = { code: '404' };
-
     sinon.stub(salesModel, 'deleteSale').resolves(result);
+    sinon.stub(salesModel, 'saleById').resolves(result);
   });
 
   after(async () => {
     salesModel.deleteSale.restore();
+    salesModel.saleById.restore();
   });
   it('Returns an object of a sale', async () => {
     const response = await salesService.deleteSale(99);
@@ -119,7 +119,6 @@ describe('Verify deleteSale fail', () => {
 describe('Verify updateSale fail', () => {
   before(async () => {
     const result = { code: '404' };
-
     sinon.stub(salesModel, 'updateSale').resolves(result);
   });
 
@@ -141,10 +140,12 @@ describe('Verify updateSale success', () => {
     };
 
     sinon.stub(salesModel, 'updateSale').resolves(result);
+    sinon.stub(salesModel, 'saleById').resolves(result);
   });
 
   after(async () => {
     salesModel.updateSale.restore();
+    salesModel.saleById.restore();
   });
   it('Returns an object of a sale', async () => {
     const arr = [

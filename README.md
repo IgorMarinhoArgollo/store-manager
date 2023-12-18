@@ -1,4 +1,4 @@
-# Store Manager
+# Store Manager (API de Gerenciamento de Loja / Store Management API)
 
 <p>
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/IgorMarinhoArgollo/store-manager?color=%2304D361">
@@ -8,327 +8,219 @@
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/IgorMarinhoArgollo/store-manager">
     
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
-   
-<details>
-  <summary><h2>:brazil: Português</h2></summary>
-  O Store Manager Project foi desenvolvido com fins educacionais no módulo de Backend do Curso de Desenvolvimento Web Full Stack na Trybe. <br> Além da parcela do backend (desenvolvida em Node.js e ExpressJS com JavaScript) do gerenciador de loja, o projeto conta com um bando de dados relacionais desenvolvido com o MySQL e os testes utilizando: Mocha, Chai e Sinon.<br><br>
-  
-  ## Live Link
-  * Localmente a aplicação está funcionando como deveria, entretanto, tendo em vista a não gratuidade do serviço de banco de dados do Heroku, a implementação do banco não foi realizada. Posteriormente existem imagens da documentação desse projeto, com todos os seus exemplos de inputs, outputs e retornos.
-  
-  ## Objetivos
-  * Elaborar o Backend de um gerenciador de loja;
-  * Implementar uma rota de Vendas, uma de produtos e outra com a documentação;
-  * Implementar as rotas com consultas ao banco de dados elaborado com MySQL;
-  * Adotar boas práticas do ponto de vista de segurança usando: Helmet, Rate-Limit e DotEnv;
-  * Utilizar o Swagger para criar a documentação;
-  * Elaborar testes cobrindo, a princípio, 100% da aplicação (outros testes ainda serão desenvolvidos para melhorar ainda mais a aplicação web);
-  * Configuração de arquivos Docker para rodar o software.<br><br>
-  
-  ## Tecnologias usadas
-  * node.js
-  * Express Js
-  * Arquitetura MSC - Model, Service, Controller
-  * Husky
-  * Commitizen
-  * ESLint
-  * Docker
-  * Helmet
-  * Rate-Limit
-  * Morgan
-  * Swagger
-  * Rescue
-  * Nyc
-  * Mocha
+</p>
+<br />
+
+<p>
+O projeto Store Manager representa a parcela backend de um gerenciador de loja. Esse projeto foi desenvolvido para fins de estudo e tinha foco em solidificar o conhecimento backend utilizando o paradigma funcional, banco de dados relacionais utilizando o MySQL e testes.
+</p>
+
+---
+
+<p>
+The Store Manager project represents the backend portion of a store management system. This project was developed for study purposes and aimed to solidify backend knowledge using the functional paradigm, relational databases using MySQL, and testing.
+</p>
+<br />
+
+### Rotas / Routes
+No Navegador / On Browser ("http://localhost:3000/api-docs"): <br><br>
+<b>
+GET  /api-docs
+</b>
+<br />
+<br />
+
+------------------------
+<p>Qualquer / Any:</p>
+
+![Routes](./assets/rotas.png)
+
+<br />
+
+
+### :dart: Objetivos / Goals
+- :white_check_mark: **Desenvolver o backend de um gerenciador de loja / Develope the backend for a store management system;**
+- :white_check_mark: Desenvolvimento utilizando o paradigma funcional / Develop using functional paradigm;
+- :white_check_mark: Desenvolver utilizando a arquitetura MSC(Model-Service-Controller) / Develop using the MVC (Model-Service-Controller) architecture;
+- :white_check_mark: Implementar banco de dados / Database implementation;
+- :white_check_mark: Desenvolver rotas de vendas e produtos / Develop sales and products routes
+- :white_check_mark: Documentar aplicação / Document application
+- :white_check_mark: Reforçar segurança com práticas como Helmet e Rate-Limit / Enhance security through practices such as Helmet and Rate-Limit;
+- :white_check_mark: Cobrir no mínimo 100% por testes / Cover at least 100% with tests;
+- :white_check_mark: Configurar Docker para execução do software / Configure Docker for software execution.<br><br>
+
+### :computer: Tecnologias Utilizadas / Used Technologies
+  * <img alt="node" src="https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+  * <img alt="express" src="https://img.shields.io/badge/Express%20js-000000?style=for-the-badge&logo=express&logoColor=white" />
+  * <img alt="mysql" src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white" />
+  * <img alt="swagger" src="https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white" />
+  * <img alt="docker" src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" />
+  * <img alt="mocha" src="https://img.shields.io/badge/-mocha-%238D6748?style=for-the-badge&logo=mocha&logoColor=white" />
   * Chai
   * Sinon
-  * DotEnv<br><br>
+  * Nyc
+  * .env
+  * Helmet
+  * Rescue
+  * Rate-Limit<br><br>
 
-      
-  ## Como Rodar
-      
-  ### Clonar no seu computador (via SSH)
-  No terminal:
+### :gear: Como Rodar / How to Run
+  #### 1 Clone o repositório (via SSH) / Clone the repository (via SSH)
+  No terminal / On terminal:
   
     git clone git@github.com:IgorMarinhoArgollo/store-manager.git
-    
-  ### Crie o arquivo .env na pasta store-manager
-  Chaves que devem ser inseridas:
-  ```
-    MYSQL_HOST=localhost (para rodar localmente)
-    // or
-    // MYSQL_HOST=db (para rodar no container)
-    MYSQL_USER=root (para rodar localmente)
-    // or
-    // MYSQL_USER=admin (para rodar no container)
-    MYSQL_PASSWORD=12345678
-    MYSQL_DATABASE=StoreManager
-    PORT=3000
-  ``` 
-   * Lembrar de configurar conexão na ferramenta que faz as requisições da API
+  
+  <br/>
 
-  ### Rodar Localmente
-  #### Requisitos:
+  #### 2 Opções para rodar(escolher 2.1 ou 2.2) / Options to run(choose between option 2.1 and 2.2)
+  ##### 2.1 Rodando Localmente / Running Locally
+  ###### Requerimentos / Requirements:
    * node.js
    * MySQL
   
-  #### Iniciando criando e populando o banco
-  No terminal:
+  ###### Instalando as dependências / Installing dependencies:
+  No terminal / On terminal:
   
+    npm install
+
+  ###### Criando .env na pasta / Creating .env file on the root of the project
+  Crie o arquivo .env na pasta raiz contendo as seguintes chaves (vide exemplo a seguir) / Create the .env file in the root folder containing the following keys (see the example below):
+  ```yaml
+    # Nome do host do MySQL / MySQL host's name
+    MYSQL_HOST=localhost
+    # Usuário MySQL Local / Local MySQL User
+    MYSQL_USER=root
+    # Senha MySQL local / Local MySQL Password
+    MYSQL_PASSWORD=12345678
+    # Nome do DB / DB's Name
+    MYSQL_DATABASE=StoreManager
+    # Porta da aplicação / Application port
+    PORT=3000
+
+    
+    # Dispensável, caso rodando localmente / Not needed for running locally
+    DB_PORT=3308
+  ``` 
+
+  ###### Inicializando / Starting
+  No terminal / On terminal:
+  ``` Bash
+    # cria o DB / create DB
     npm run migration
+    # popula o DB / populate DB
     npm run seed
-  
-  
-  #### Iniciando o projeto localmente
-  No terminal:
-  
+    # inicia a aplicação / start application
     npm run dev
-          
-      
-  ### Rodar no Container
-  #### Requisitos:
+  ```
+
+  <br />
+  
+  ##### 2.2 Rodando no Container / Running on Container
+  ###### Requisitos / Requirements:
    * Docker
    * Docker-compose
+
+  ###### Criando .env na pasta / Creating .env file on the root of the project
+  Crie o arquivo .env na pasta raiz contendo as seguintes chaves (vide exemplo a seguir) / Create the .env file in the root folder containing the following keys (see the example below):
+  ```yaml
+    # Nome do container / Container's name
+    MYSQL_HOST=db
+    # Usuário padrão durante a criação do container do DB / Default user for DB creation on container
+    MYSQL_USER=admin
+    # Qualquer valor (apenas para o mysql não acusar warning) / Any value (only for mysql not pointing warning)
+    MYSQL_PASSWORD=123
+    # Nome do DB / DB's Name
+    MYSQL_DATABASE=StoreManager
+    # Porta da aplicação / Application port
+    PORT=3000
+    # Porta do Container do DB / DB Container's Port
+    DB_PORT=3308
+  ```
   
-  #### Iniciando o projeto no container
-  ajustar .env<br>
-  no terminal:
+  ###### Inicializando / Starting
+  No terminal / On terminal:
   
     docker-compose up
 
-  ## Testar rotas protegidas na documentação
-   1. Utilizar a rota login para obter o token
-   2. Copiar apenas a parte do JWT token e aplicar no botão Authorization na parte superior da documentação<br>
-   
-   Exemplo do retorno do login:
-   
-    {
-    "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTY2MTgwODE4MSwiZXhwIjoxNjYyNDEyOTgxfQ.usrh36s9E0P45OovNFLGbmuMz8x4C4mNQFoJs2dLLl8"
-    }
+<b>
+Quando o terminal exibir a mensagem abaixo, os contêineres estarão prontos, e a aplicação poderá ser testada. / When the terminal shows the message below, the containers are ready, and the application can be tested.
+</b>
+<br>
+<br>
+<br/>
 
-   Exemplo de inserção no Authorization:
-   ```eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTY2MTgwODE4MSwiZXhwIjoxNjYyNDEyOTgxfQ.usrh36s9E0P45OovNFLGbmuMz8x4C4mNQFoJs2dLLl8```
-   
-  ## Rotas
-  Vide detalhes na documentação disponível na rota: 
-  
-  * GET /api-docs
-  ------------------------
-  * GET /products
-  * GET /products/search?q=
-  * GET /products/:id
-  * POST /products
-  * PUT /products/:id
-  * DELETE /products/:id
-  * GET /sales
-  * GET /sales/:id
-  * POST /sales
-  * PUT /sales/:id
-  * DELETE /sales/:id
-  
+![terminalReady](./assets/w8till.png)
+<br>
+<br />
 
-  ## Testes Desenvolvidos
-  Use npm test para rodar todos os testes e verificar cobertura:<br>
 
-  ![coverage](./images/coverage.png)
 
-  ## Imagens das rotas
-   ![1](./images/1.png)
-   ![2](./images/2.png)
-   ![3](./images/3.png)
-   ![4](./images/4.png)
-   ![5](./images/5.png)
-   ![6](./images/6.png)
-   ![7](./images/7.png)
-   ![8](./images/8.png)
-   ![9](./images/9.png)
-   ![10](./images/10.png)
-   ![11](./images/11.png)
-   ![12](./images/12.png)
-   ![13](./images/13.png)
-   ![14](./images/14.png)
-   ![15](./images/15.png)
-   ![16](./images/16.png)
-   ![17](./images/17.png)
-   ![18](./images/18.png)
-   
 
-  ## Como contribuir no projeto
-  1. Faça um **fork** do projeto;
-  2. Crie uma nova branch com as suas alterações: `git checkout -b my-feature`;
-  3. Salve as alterações e crie uma mensagem de commit contando o que você fez: `git commit -m "feature: My new feature"`;
-  4. Envie as suas alterações: `git push origin my-feature`;
-  5. Abra o seu pull-request na página do GitHub.<br><br>
+### :test_tube:	Testes / Tests
 
-  ##  Autor
+![Testes](./assets/cobertura.png)
+
+
+### Imagens / Images
+#### PRODUCTS
+- /products (GET)
+![getAllProducts](./assets/getAllProducts.png)
+<br />
+
+- /products/{id} (GET)
+![getproductsById](./assets/getProductById.png)
+<br />
+
+- /products (POST)
+![createProduct](./assets/createProduct.png)
+<br />
+
+- /products/search?q= (GET)
+![getProductByParam](./assets/getProductByName.png)
+<br />
+
+- /products/{id} (PUT)
+![updateProduct](./assets/updateProduct.png)
+<br />
+
+- /products/{id} (DELETE)
+![deleteProduct](./assets/deleteProduct.png)
+<br />
+<br />
+
+#### SALES
+- /sales (GET)
+![getAllsales](./assets/getAllSales.png)
+<br />
+
+- /sales/{id} (GET)
+![getsalesById](./assets/getSalesById.png)
+<br />
+
+- /sales (POST)
+![createSale](./assets/createSale.png)
+<br />
+
+- /sales/{id} (PUT)
+![updateSale](./assets/updateSales.png)
+<br />
+
+- /sales/{id} (DELETE)
+![deleteSale](./assets/deleteSales.png)
+<br />
+<br />
+
+
+### :technologist: Author / Autor
 <a href="https://www.linkedin.com/in/igormarinhoargollo/">
  <img style="border-radius:300px;" src="https://avatars.githubusercontent.com/u/85767736?s=96&v=4" width="100px;" alt=""/>
  <br />
  <sub><b>Igor Marinho Argollo</b></sub></a> <a href="https://www.linkedin.com/in/igormarinhoargollo/"></a>
- <br><br>
+ <br /> <br />
 
-  ## Licença
-  Esse projeto está sob a licença:
+ 
+  ### :page_facing_up: Licença / License
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen"><br><br>
-</details>
-  
-  ##  
-  ## :us: English
-  The Store Manager Project was developed for educational purposes in the Backend module of the Full Stack Web Development Course at Trybe. <br> In addition to the backend portion (developed in Node.js and ExpressJS with JavaScript) of the store manager, the project has a relational database developed with MySQL and tests developed with: Mocha, Chai and Sinon.<br><br>
-
-## Live Link  
-  * Locally the application is working as it should, however, in view of the non-gratuity of the Heroku database service, the database implementation was not carried out. Following in this readme there's some images of the documentation with examples of inputs, outputs and returns
-
-## My Goals
-* Develop the Backend of a store manager;
-* Implement routes: sales, products and documentation;
-* Implement the routes with queries to the MySQL database;
-* Adopt best practices from a security point of view using: Helmet, Rate-Limit and DotEnv;
-* Use Swagger to create documentation;
-* Develop tests covering, in principle, 100% of the application (other tests will still be developed to further improve the web application);
-* Configuration of Docker files and docker-compose to run the software.<br><br>
-
-## Used Technologies
-* node.js
-* Express Js
-* Arquitetura MSC - Model, Service, Controller
-* Husky
-* Commitizen
-* ESLint
-* Docker
-* Helmet
-* Rate-Limit
-* Morgan
-* Swagger
-* Rescue
-* Nyc
-* Mocha
-* Chai
-* Sinon
-* DotEnv<br><br>
-
-    
-## How to Run
-      
-  ### Clone the repository on your computer (via SSH)
-  On terminal:
-  
-    git clone git@github.com:IgorMarinhoArgollo/store-manager.git
-    
-  ### Create the .env file on store-manager file
-  Keys that must be included:
-  ```
-    MYSQL_HOST=localhost (to run locally)
-    // or
-    // MYSQL_HOST=db (to run on container)
-    MYSQL_USER=root (to run locally)
-    // or
-    // MYSQL_USER=admin (to run on container)
-    MYSQL_PASSWORD=12345678
-    MYSQL_DATABASE=StoreManager
-    PORT=3000
-  ``` 
-  * Remember to configure the connection on the API request tool.
-
-  ### Running Locally
-  #### Requirements:
-   * node.js
-   * MySQL
-  
-  #### Stasting and population database
-  On terminal:
-  
-    npm run migration
-    npm run seed
-  
-  #### Starting the project locally
-  On terminal:
-  
-    npm run dev
-      
-      
-  ### Running on Container
-  #### Requirements:
-   * Docker
-   * Docker-compose
-  
-  #### Starting the project on Docker
-  adjust .env<br>
-  On terminal:
-  
-    docker-compose up
-
-  ## Testing protected routes on documentation
-   1. Use login route to get a token
-   2. Copy only the JWT token part and place it on Authorization button in the upper part of the page<br>
-   
-   Example of login return:
-   ```
-   {
-    "token": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTY2MTgwODE4MSwiZXhwIjoxNjYyNDEyOTgxfQ.usrh36s9E0P45OovNFLGbmuMz8x4C4mNQFoJs2dLLl8"
-    }
-   ```
-   
-   Example of what should be placed on Authorization:
-   ```eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTY2MTgwODE4MSwiZXhwIjoxNjYyNDEyOTgxfQ.usrh36s9E0P45OovNFLGbmuMz8x4C4mNQFoJs2dLLl8```
-
-
-## Routes
-  See more details on documentation available on route: 
-  
-  * GET /api-docs
-  ------------------------
-  * GET /products
-  * GET /products/search?q=
-  * GET /products/:id
-  * POST /products
-  * PUT /products/:id
-  * DELETE /products/:id
-  * GET /sales
-  * GET /sales/:id
-  * POST /sales
-  * PUT /sales/:id
-  * DELETE /sales/:id
   
 
-## Developed Tests
-  Use npm test to run all tests and verify coverage:<br>
-  ![coverage](./images/coverage.png)
-
-## Routes Images
- ![1](./images/1.png)
- ![2](./images/2.png)
- ![3](./images/3.png)
- ![4](./images/4.png)
- ![5](./images/5.png)
- ![6](./images/6.png)
- ![7](./images/7.png)
- ![8](./images/8.png)
- ![9](./images/9.png)
- ![10](./images/10.png)
- ![11](./images/11.png)
- ![12](./images/12.png)
- ![13](./images/13.png)
- ![14](./images/14.png)
- ![15](./images/15.png)
- ![16](./images/16.png)
- ![17](./images/17.png)
- ![18](./images/18.png)
-
-## How to contribute on the project
-  1. Make a **fork** of the project;
-  2. Create a new branch with your changes: `git checkout -b my-feature`;
-  3. Save your changes and create a commit message explaining what you have done: `git commit -m "feature: My new feature"`;
-  4. Send your changes: `git push origin my-feature`;
-  5. Open your pull-request on GitHub.<br><br>
-
-##  Author
-<a href="https://www.linkedin.com/in/igormarinhoargollo/">
- <img style="border-radius:300px;" src="https://avatars.githubusercontent.com/u/85767736?s=96&v=4" width="100px;" alt=""/>
- <br />
- <sub><b>Igor Marinho Argollo</b></sub></a> <a href="https://www.linkedin.com/in/igormarinhoargollo/"></a>
- <br />
   
-## License
-  This project is under license:
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen"><br><br>

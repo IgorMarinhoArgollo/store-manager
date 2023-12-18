@@ -87,7 +87,6 @@ describe('Verify postProduct success', () => {
 describe('Verify deleteProduct success', async () => {
   before(async () => {
     const result = { code: '204' };
-
     sinon.stub(productsModel, 'deleteProduct').resolves(result);
   });
 
@@ -104,10 +103,12 @@ describe('Verify deleteProduct fail', async () => {
   before(async () => {
     const result = { code: '404' };
     sinon.stub(productsModel, 'deleteProduct').resolves(result);
+    sinon.stub(productsModel, 'productById').resolves(result);
   });
 
   after(async () => {
     productsModel.deleteProduct.restore();
+    productsModel.productById.restore();
   });
   it('Returns an object with the error code(422) of products', async () => {
     const response = await productsService.deleteProduct(8);
@@ -145,10 +146,12 @@ describe('Verify product not found on put', async () => {
   before(async () => {
     const result = {};
     sinon.stub(productsModel, 'putProduct').resolves(result);
+    sinon.stub(productsModel, 'productById').resolves(result);
   });
 
   after(async () => {
     productsModel.putProduct.restore();
+    productsModel.productById.restore();
   });
 
   it('Returns an object with the error code(404) of products', async () => {
