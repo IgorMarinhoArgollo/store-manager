@@ -1,227 +1,137 @@
-# Store Manager (API de Gerenciamento de Loja / Store Management API)
+# Store Manager API
 
-<p>
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/IgorMarinhoArgollo/store-manager?color=%2304D361">
+![Last commit](https://img.shields.io/github/last-commit/IgorMarinhoArgollo/store-manager)
+![License](https://img.shields.io/badge/license-MIT-brightgreen)
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/IgorMarinhoArgollo/store-manager">
-  
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/IgorMarinhoArgollo/store-manager">
-    
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
-</p>
-<br />
+🇧🇷 [Leia em português](./README.pt-br.md)
 
-<p>
-O projeto Store Manager representa a parcela backend de um gerenciador de loja. Esse projeto foi desenvolvido para fins de estudo e tinha foco em solidificar o conhecimento backend utilizando o paradigma funcional, banco de dados relacionais utilizando o MySQL e testes.
-</p>
+REST API for a store management system: products and sales, backed by **MySQL**, documented with **Swagger**, covered by automated tests and runnable with **Docker**. Built to solidify backend fundamentals during Trybe's Full Stack Web Development course.
 
----
+![Test coverage](./assets/cobertura.png)
 
-<p>
-The Store Manager project represents the backend portion of a store management system. This project was developed for study purposes and aimed to solidify backend knowledge using the functional paradigm, relational databases using MySQL, and testing.
-</p>
-<br />
+## Features
 
-### Rotas / Routes
-No Navegador / On Browser ("http://localhost:3000/api-docs"): <br><br>
-<b>
-GET  /api-docs
-</b>
-<br />
-<br />
+- CRUD for **products** and **sales**, plus product search by name
+- Layered architecture: **Model → Service → Controller**, written in a functional style
+- Relational database (MySQL) with migration and seed scripts
+- Interactive API documentation with Swagger at `/api-docs`
+- Security basics: Helmet, rate limiting, centralized error handling and environment variables
+- Unit tests for every layer (models, services, controllers) with Mocha, Chai, Sinon and nyc, aiming at full coverage
+- Docker and Docker Compose setup, Husky and ESLint for code quality
 
-------------------------
-<p>Qualquer / Any:</p>
+## Tech stack
 
-![Routes](./assets/rotas.png)
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
+![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
+![Mocha](https://img.shields.io/badge/Mocha-8D6748?style=for-the-badge&logo=mocha&logoColor=white)
 
-<br />
+Also: Chai, Sinon, nyc, Helmet, express-rate-limit, express-rescue and dotenv.
 
+## Running locally
 
-### :dart: Objetivos / Goals
-- :white_check_mark: **Desenvolver o backend de um gerenciador de loja / Develope the backend for a store management system;**
-- :white_check_mark: Desenvolvimento utilizando o paradigma funcional / Develop using functional paradigm;
-- :white_check_mark: Desenvolver utilizando a arquitetura MSC(Model-Service-Controller) / Develop using the MVC (Model-Service-Controller) architecture;
-- :white_check_mark: Implementar banco de dados / Database implementation;
-- :white_check_mark: Desenvolver rotas de vendas e produtos / Develop sales and products routes
-- :white_check_mark: Documentar aplicação / Document application
-- :white_check_mark: Reforçar segurança com práticas como Helmet e Rate-Limit / Enhance security through practices such as Helmet and Rate-Limit;
-- :white_check_mark: Cobrir no mínimo 100% por testes / Cover at least 100% with tests;
-- :white_check_mark: Configurar Docker para execução do software / Configure Docker for software execution.<br><br>
+Clone the repository and create a `.env` file in the project root.
 
-### :computer: Tecnologias Utilizadas / Used Technologies
-  * <img alt="javascript" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
-  * <img alt="node" src="https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
-  * <img alt="express" src="https://img.shields.io/badge/Express%20js-000000?style=for-the-badge&logo=express&logoColor=white" />
-  * <img alt="mysql" src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white" />
-  * <img alt="swagger" src="https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white" />
-  * <img alt="docker" src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" />
-  * <img alt="mocha" src="https://img.shields.io/badge/-mocha-%238D6748?style=for-the-badge&logo=mocha&logoColor=white" />
-  * Chai
-  * Sinon
-  * Nyc
-  * .env
-  * Helmet
-  * Rescue
-  * Rate-Limit<br><br>
+```bash
+git clone https://github.com/IgorMarinhoArgollo/store-manager.git
+cd store-manager
+```
 
-### :gear: Como Rodar / How to Run
-  #### 1 Clone o repositório (via SSH) / Clone the repository (via SSH)
-  No terminal / On terminal:
-  
-    git clone git@github.com:IgorMarinhoArgollo/store-manager.git
-  
-  <br/>
+### Option 1: Docker (recommended)
 
-  #### 2 Opções para rodar(escolher 2.1 ou 2.2) / Options to run(choose between option 2.1 and 2.2)
-  ##### 2.1 Rodando Localmente / Running Locally
-  ###### Requerimentos / Requirements:
-   * node.js
-   * MySQL
-  
-  ###### Instalando as dependências / Installing dependencies:
-  No terminal / On terminal:
-  
-    npm install
+Requirements: Docker and Docker Compose.
 
-  ###### Criando .env na pasta / Creating .env file on the root of the project
-  Crie o arquivo .env na pasta raiz contendo as seguintes chaves (vide exemplo a seguir) / Create the .env file in the root folder containing the following keys (see the example below):
-  ```yaml
-    # Nome do host do MySQL / MySQL host's name
-    MYSQL_HOST=localhost
-    # Usuário MySQL Local / Local MySQL User
-    MYSQL_USER=root
-    # Senha MySQL local / Local MySQL Password
-    MYSQL_PASSWORD=12345678
-    # Nome do DB / DB's Name
-    MYSQL_DATABASE=StoreManager
-    # Porta da aplicação / Application port
-    PORT=3000
+```env
+MYSQL_HOST=db
+MYSQL_USER=admin
+MYSQL_PASSWORD=123
+MYSQL_DATABASE=StoreManager
+PORT=3000
+DB_PORT=3308
+```
 
-    
-    # Dispensável, caso rodando localmente / Not needed for running locally
-    DB_PORT=3308
-  ``` 
+```bash
+docker-compose up
+```
 
-  ###### Inicializando / Starting
-  No terminal / On terminal:
-  ``` Bash
-    # cria o DB / create DB
-    npm run migration
-    # popula o DB / populate DB
-    npm run seed
-    # inicia a aplicação / start application
-    npm run dev
-  ```
+When the terminal shows the message below, the containers are ready:
 
-  <br />
-  
-  ##### 2.2 Rodando no Container / Running on Container
-  ###### Requisitos / Requirements:
-   * Docker
-   * Docker-compose
+![Containers ready](./assets/w8till.png)
 
-  ###### Criando .env na pasta / Creating .env file on the root of the project
-  Crie o arquivo .env na pasta raiz contendo as seguintes chaves (vide exemplo a seguir) / Create the .env file in the root folder containing the following keys (see the example below):
-  ```yaml
-    # Nome do container / Container's name
-    MYSQL_HOST=db
-    # Usuário padrão durante a criação do container do DB / Default user for DB creation on container
-    MYSQL_USER=admin
-    # Qualquer valor (apenas para o mysql não acusar warning) / Any value (only for mysql not pointing warning)
-    MYSQL_PASSWORD=123
-    # Nome do DB / DB's Name
-    MYSQL_DATABASE=StoreManager
-    # Porta da aplicação / Application port
-    PORT=3000
-    # Porta do Container do DB / DB Container's Port
-    DB_PORT=3308
-  ```
-  
-  ###### Inicializando / Starting
-  No terminal / On terminal:
-  
-    docker-compose up
+### Option 2: Node.js and a local MySQL
 
-<b>
-Quando o terminal exibir a mensagem abaixo, os contêineres estarão prontos, e a aplicação poderá ser testada. / When the terminal shows the message below, the containers are ready, and the application can be tested.
-</b>
-<br>
-<br>
-<br/>
+Requirements: Node.js and MySQL.
 
-![terminalReady](./assets/w8till.png)
-<br>
-<br />
+```env
+MYSQL_HOST=localhost
+MYSQL_USER=root
+MYSQL_PASSWORD=12345678
+MYSQL_DATABASE=StoreManager
+PORT=3000
+```
 
+```bash
+npm install
+npm run migration   # creates the database
+npm run seed        # populates it
+npm run dev         # starts the API
+```
 
+Open the Swagger docs at <http://localhost:3000/api-docs>.
 
+## API
 
-### :test_tube:	Testes / Tests
+| Method | Route | Description |
+|---|---|---|
+| GET | `/products` | Lists all products |
+| GET | `/products/:id` | Gets a product |
+| GET | `/products/search?q=` | Searches products by name |
+| POST | `/products` | Creates a product |
+| PUT | `/products/:id` | Updates a product |
+| DELETE | `/products/:id` | Deletes a product |
+| GET | `/sales` | Lists all sales |
+| GET | `/sales/:id` | Gets a sale |
+| POST | `/sales` | Creates a sale |
+| PUT | `/sales/:id` | Updates a sale |
+| DELETE | `/sales/:id` | Deletes a sale |
 
-![Testes](./assets/cobertura.png)
+<details>
+<summary>Request examples (screenshots)</summary>
 
+**Products**
 
-### Imagens / Images
-#### PRODUCTS
-- /products (GET)
-![getAllProducts](./assets/getAllProducts.png)
-<br />
+![GET /products](./assets/getAllProducts.png)
+![GET /products/:id](./assets/getProductById.png)
+![POST /products](./assets/createProduct.png)
+![GET /products/search](./assets/getProductByName.png)
+![PUT /products/:id](./assets/updateProduct.png)
+![DELETE /products/:id](./assets/deleteProduct.png)
 
-- /products/{id} (GET)
-![getproductsById](./assets/getProductById.png)
-<br />
+**Sales**
 
-- /products (POST)
-![createProduct](./assets/createProduct.png)
-<br />
+![GET /sales](./assets/getAllSales.png)
+![GET /sales/:id](./assets/getSalesById.png)
+![POST /sales](./assets/createSale.png)
+![PUT /sales/:id](./assets/updateSales.png)
+![DELETE /sales/:id](./assets/deleteSales.png)
 
-- /products/search?q= (GET)
-![getProductByParam](./assets/getProductByName.png)
-<br />
+</details>
 
-- /products/{id} (PUT)
-![updateProduct](./assets/updateProduct.png)
-<br />
+## Tests
 
-- /products/{id} (DELETE)
-![deleteProduct](./assets/deleteProduct.png)
-<br />
-<br />
+```bash
+npm test
+```
 
-#### SALES
-- /sales (GET)
-![getAllsales](./assets/getAllSales.png)
-<br />
+The test suite mirrors the architecture, with one folder each for models, services and controllers under `tests/`.
 
-- /sales/{id} (GET)
-![getsalesById](./assets/getSalesById.png)
-<br />
+## Author
 
-- /sales (POST)
-![createSale](./assets/createSale.png)
-<br />
+**Igor Marinho Argollo** · [LinkedIn](https://www.linkedin.com/in/igormarinhoargollo/) · [Portfolio](https://igor-marinho.netlify.app/)
 
-- /sales/{id} (PUT)
-![updateSale](./assets/updateSales.png)
-<br />
+## License
 
-- /sales/{id} (DELETE)
-![deleteSale](./assets/deleteSales.png)
-<br />
-<br />
-
-
-### :technologist: Author / Autor
-<a href="https://www.linkedin.com/in/igormarinhoargollo/">
- <img style="border-radius:300px;" src="https://avatars.githubusercontent.com/u/85767736?s=96&v=4" width="100px;" alt=""/>
- <br />
- <sub><b>Igor Marinho Argollo</b></sub></a> <a href="https://www.linkedin.com/in/igormarinhoargollo/"></a>
- <br /> <br />
-
- 
-  ### :page_facing_up: Licença / License
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen"><br><br>
-  
-
-  
+MIT
